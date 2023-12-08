@@ -1,0 +1,56 @@
+﻿@model BackEnd.Entidades.Unidades
+
+@{
+    ViewData["Title"] = "Unidades";
+}
+<style>
+    /* Estilos para el contenedor */
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilos para los formularios */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    /* Estilos para los botones */
+    .btn {
+        margin-right: 5px;
+    }
+</style>
+<div class="container">
+    <h1>Eliminar</h1>
+
+    <h4>Unidad</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Delete">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdUnidad" />
+                <div class="form-group">
+                    <label asp-for="NumeroDePlaca" class="control-label"></label>
+                    <input asp-for="NumeroDePlaca" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                    <label asp-for="CapacidadDePasajeros" class="control-label"></label>
+                    <input asp-for="CapacidadDePasajeros" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                    <label asp-for="IdEstadoDeUnidadNavigation.Descripcion" class="control-label"></label>
+                    <input asp-for="IdEstadoDeUnidadNavigation.Descripcion" class="form-control" disabled />
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Eliminar" class="btn btn-danger" />
+                    <a asp-action="Index" class="btn btn-dark">Regresar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

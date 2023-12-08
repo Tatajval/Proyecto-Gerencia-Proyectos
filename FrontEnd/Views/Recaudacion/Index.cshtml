@@ -1,0 +1,96 @@
+﻿@model IEnumerable<BackEnd.Entidades.VwRecaudacion>
+
+@{
+    ViewData["Title"] = "Reportes";
+    var format = new System.Globalization.CultureInfo("");
+    format.NumberFormat.NumberGroupSeparator = ",";
+    format.NumberFormat.NumberDecimalSeparator = ".";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <!-- Agrega enlaces a tus archivos CSS aquí si los tienes -->
+    <link rel="stylesheet" href="tu_estilo.css">
+    <style>
+        /* Estilos para el contenedor */
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para la tabla */
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+            border-collapse: collapse;
+        }
+
+        .table th,
+        .table td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+
+        /* Estilos para los botones */
+        .btn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        <h2>Unidades por estado</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Fecha)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Ruta)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TotalEstimado)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.TotalRecaudado)
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Fecha)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Ruta)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalEstimado.ToString("N2", format))
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.TotalRecaudado.ToString("N2", format))
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div>
+            <p><a asp-action="Index" asp-controller="Reportes" class="btn btn-dark">Volver</a></p>
+        </div>
+    </div>
+</body>
+</html>

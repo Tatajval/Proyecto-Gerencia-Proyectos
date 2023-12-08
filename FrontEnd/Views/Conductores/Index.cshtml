@@ -1,0 +1,98 @@
+﻿@model IEnumerable<BackEnd.Entidades.Conductores>
+
+@{
+    ViewData["Title"] = "Conductores";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <!-- Agrega enlaces a tus archivos CSS aquí si los tienes -->
+    <link rel="stylesheet" href="tu_estilo.css">
+    <style>
+        /* Estilos para el contenedor */
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para la tabla */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+            .table th, .table td {
+                padding: 10px;
+                text-align: left;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .table th {
+                background-color: #f2f2f2;
+            }
+
+            .table tr:hover {
+                background-color: #f0f0f0;
+            }
+
+        /* Estilos para los botones */
+        .btn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Nuevo conductor</a>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NombreCompleto)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EstaActivo)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EstaDisponible)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NombreCompleto)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EstaActivo)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EstaDisponible)
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.IdConductor" class="btn btn-info">Información</a>
+                            <a asp-action="Edit" asp-route-id="@item.IdConductor" class="btn btn-warning">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.IdConductor" class="btn btn-danger">Borrar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

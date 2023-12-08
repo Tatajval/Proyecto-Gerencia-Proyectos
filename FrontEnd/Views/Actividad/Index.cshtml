@@ -1,0 +1,74 @@
+﻿@model IEnumerable<BackEnd.Entidades.Actividad>
+@{
+    ViewData["Title"] = "Registro de actividades";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <!-- Agrega enlaces a tus archivos CSS aquí si los tienes -->
+    <style>
+        /* Estilos para el contenedor */
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para la tabla */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Accion)</th>
+                    <th>@Html.DisplayNameFor(model => model.Tipo)</th>
+                    <th>@Html.DisplayNameFor(model => model.Usuario)</th>
+                    <th>@Html.DisplayNameFor(model => model.Completada)</th>
+                    <th>@Html.DisplayNameFor(model => model.FechaHora)</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Accion)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Tipo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Usuario)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Completada)</td>
+                        <td>@Html.DisplayFor(modelItem => item.FechaHora)</td>
+                        <td><a asp-action="Info" asp-route-id="@item.ObjID">Más información</a></td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

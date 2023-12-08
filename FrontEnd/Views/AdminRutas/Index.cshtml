@@ -1,0 +1,111 @@
+﻿@{
+    ViewData["Title"] = "Rutas";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <!-- Agrega enlaces a tus archivos CSS aquí si los tienes -->
+    <link rel="stylesheet" href="./css/site.css">
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        /* Estilos para el contenedor */
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para la tabla */
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+
+
+        .table th, .table td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .table th {
+            background-color: #f2f2f2;
+        }
+
+        .table tr:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+        <hr />
+        <p class="text-body">Utilice estas opciones para administrar los accesos al portal.</p>
+
+        <div class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-left box-shadow mb-3">
+            <table class="table">
+                <tr>
+                    <th class="col-sm-3">Módulo</th>
+                    <th class="col-sm-10">Descripción</th>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="btn-link" asp-controller="Rutas" asp-action="Index">Rutas</a>
+                    </td>
+                    <td>
+                        Establecer, ajustar o cancelar rutas.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="btn-link" asp-controller="EstadosDeUnidad" asp-action="Index">Estados de la unidad</a>
+                    </td>
+                    <td>
+                        Establecer, ajustar o eliminar los estados posibles de una unidad.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="btn-link" asp-controller="Unidades" asp-action="Index">Unidades</a>
+                    </td>
+                    <td>
+                        Incorporar, renovar o dar de baja unidades.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="btn-link" asp-controller="Conductores" asp-action="Index">Conductores</a>
+                    </td>
+                    <td>
+                        Incluir, renovar o dar de baja conductores.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="btn-link" asp-controller="ConductoresPorUnidad" asp-action="Index">Asignar conductores a una unidad</a>
+                    </td>
+                    <td>
+                        Asignar conductores a una unidad y desvincular los condutores asignados a una unidad.
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a class="btn-link" asp-controller="MontosPorRutaPorUnidad" asp-action="Index">Monto a recaudar</a>
+                    </td>
+                    <td>
+                        Definir los importes a recolectar por fecha para cada unidad asignada a una ruta particular.
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

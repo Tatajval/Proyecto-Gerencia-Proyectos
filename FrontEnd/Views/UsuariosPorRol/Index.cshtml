@@ -1,0 +1,80 @@
+﻿@model IEnumerable<BackEnd.Entidades.VwUsuariosPorRol>
+
+@{
+    ViewData["Title"] = "Reportes";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <!-- Agrega enlaces a tus archivos CSS aquí si los tienes -->
+    <link rel="stylesheet" href="tu_estilo.css">
+    <style>
+        /* Estilos para el contenedor */
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Estilos para la tabla */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f5f5f5;
+            text-align: left;
+        }
+
+        /* Estilos para el encabezado */
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para el enlace de volver */
+        .back-link {
+            margin-top: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Usuarios por rol</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>@Html.DisplayNameFor(model => model.Rol)</th>
+                    <th>@Html.DisplayNameFor(model => model.RolActivo)</th>
+                    <th>@Html.DisplayNameFor(model => model.Usuarios)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Rol)</td>
+                        <td>@Html.DisplayFor(modelItem => item.RolActivo)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Usuarios)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <div class="back-link">
+            <p><a asp-action="Index" asp-controller="Reportes">Volver</a></p>
+        </div>
+    </div>
+
+    <!-- Agrega aquí tus scripts si los necesitas -->
+</body>
+</html>

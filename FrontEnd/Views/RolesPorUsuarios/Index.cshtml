@@ -1,0 +1,82 @@
+﻿@model IEnumerable<BackEnd.Entidades.RolesPorUsuario>
+
+@{
+    ViewData["Title"] = "Roles por usuario";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <!-- Agrega enlaces a tus archivos CSS aquí si los tienes -->
+    <link rel="stylesheet" href="tu_estilo.css">
+    <style>
+        /* Estilos para el contenedor */
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para los botones */
+        .btn {
+            margin-right: 5px;
+        }
+
+        /* Estilos para la tabla */
+        .table {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        <h2>Administración de asignación de roles</h2>
+        <hr />
+
+        <p>
+            <a asp-action="Create" class="btn btn-primary">Asignar rol</a>
+        </p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Usuario</th>
+                    <th>Rol</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdUsuarioNavigation.Usuario)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdRolNavigation.Rol)
+                        </td>
+                        <td>
+                            <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-info">Información</a>
+                            <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-warning">Editar</a>
+                            <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Borrar</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Agrega aquí tus scripts si los necesitas -->
+    @section Scripts {
+        @{
+            await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        }
+    }
+</body>
+</html>

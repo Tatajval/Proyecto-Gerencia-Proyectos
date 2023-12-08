@@ -1,0 +1,60 @@
+﻿@model BackEnd.Entidades.Unidades
+
+@{
+    ViewData["Title"] = "Unidades";
+}
+<style>
+    /* Estilos para el contenedor */
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilos para los formularios */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    /* Estilos para los botones */
+    .btn {
+        margin-right: 5px;
+    }
+</style>
+<div class="container">
+    <h1>Ver más información</h1>
+
+    <h4>Unidad</h4>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <dl class="row">
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.NumeroDePlaca)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.NumeroDePlaca)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.CapacidadDePasajeros)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.CapacidadDePasajeros)
+                </dd>
+                <dt class="col-sm-2">
+                    @Html.DisplayNameFor(model => model.IdEstadoDeUnidadNavigation)
+                </dt>
+                <dd class="col-sm-10">
+                    @Html.DisplayFor(model => model.IdEstadoDeUnidadNavigation.Descripcion)
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.IdUnidad" class="btn btn-warning">Modificar</a>
+        <a asp-action="Index" class="btn btn-dark">Cancelar</a>
+    </div>
+</div>

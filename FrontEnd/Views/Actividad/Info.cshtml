@@ -1,0 +1,59 @@
+﻿@model BackEnd.Entidades.Actividad
+
+@{
+    ViewData["Title"] = "Registro de la actividad";
+}
+
+<h1>Información</h1>
+
+<div>
+    <h4>Actividad</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ObjID)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ObjID)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Accion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Accion)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Tipo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Tipo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Objeto)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Objeto)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Usuario)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Usuario)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Completada)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Completada)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FechaHora)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FechaHora)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Index">Volver</a>
+</div>

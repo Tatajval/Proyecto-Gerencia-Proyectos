@@ -1,0 +1,103 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] Control de rutas</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="icon" href="~/icon.ico" />
+</head>
+
+@*<style>
+    /* Estilos para el contenedor */
+    .container {
+        max-width: 1500px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #f5f5f5;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Estilos para los formularios */
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    /* Estilos para los botones */
+    .btn {
+        margin-right: 5px;
+    }
+</style>
+*@
+
+
+
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+            
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index"> <img src="~/Images/bus.png" title="Control de Rutas" width="30" height="30" /></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-4">
+                        @if (User.IsInRole("supervisor"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="AdminRutas" asp-action="Index">Rutas</a>
+                            </li>
+                            <li class="navbar-item ms-auto">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Acceso" asp-action="Index"><img src="~/Images/exit.png" title="Cerrar Sesion" width="20" height="20" /></a>
+                            </li>
+                        }
+                        @if (User.IsInRole("asistente"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Reportes" asp-action="Index">Reportes</a>
+                            </li>
+                            <li class="navbar-item ms-auto">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Acceso" asp-action="Index"><img src="~/Images/exit.png" title="Cerrar Sesion" width="20" height="20" /></a>
+                            </li>
+                        }
+                    @**@
+                        @if (User.IsInRole("admin"))
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-light" asp-area="" asp-controller="AdminSeguridad" asp-action="Index">Roles y usuarios</a>
+                            </li>
+                            <li class="navbar-item ms-auto">
+                                <a class="nav-link text-light" asp-area="" asp-controller="Acceso" asp-action="CerrarSesion"><img src="~/Images/exit.png" title="Cerrar Sesion" width="20" height="20" /></a>
+                            </li>
+                        }
+            
+ 
+                    </ul>
+                </div>
+            
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+   
+    <footer class="border-top footer text-muted">
+        <div class="container">
+             Derechos Reservados del Sistema de rutas Buena Vista - Gerencia de Proyectos
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

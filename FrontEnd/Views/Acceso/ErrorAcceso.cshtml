@@ -1,0 +1,31 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css">
+    <title> Error de acceso | Control de rutas </title>
+</head>
+<body>
+    <h1 class="display-2 , text-center">Control de rutas</h1>
+
+    <div class="row mt-5">
+        <div class="col-sm-4 offset-sm-4">
+            <p>Ocurrió un error al validar su usuario, la causa puede ser una de las siguientes:</p>
+            <ul>
+                <li>El usuario es inválido o está vacío</li>
+                <li>La contraseña es incorrecta</li>
+                <li>El usuario está inactivo</li>
+                <li>El usuario no tiene roles asignados</li>
+                <li>El usuario tien asignado un rol inactivo</li>
+            </ul>
+            <a asp-action="Index" class="btn-link">Volver</a>
+            <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.js"></script>
+        </div>
+    </div>
+</body>
+</html>

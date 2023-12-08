@@ -1,0 +1,42 @@
+﻿@{
+    ViewData["Title"] = "Seguridad";
+}
+
+<div class="container">
+    <h1>Administración de roles y usuarios</h1>
+    <hr />
+    <p class="text-body">Utilice estas opciones para administrar los accesos al portal.</p>
+
+    <div class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-left box-shadow mb-3">
+        <table class="table">
+            <tr>
+                <th class="col-sm-3">Módulo</th>
+                <th class="col-sm-10">Descripción</th>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-controller="Roles" asp-action="Index">Roles</a>
+                </td>
+                <td>
+                    Crear, modificar o eliminar roles (perfiles) de usuario.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-controller="Usuarios" asp-action="Index">Usuarios</a>
+                </td>
+                <td>
+                    Crear, modificar o eliminar usuarios. Incluye: cambio de contraseñas.
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <a asp-controller="RolesPorUsuarios" asp-action="Index">Asignación de roles</a>
+                </td>
+                <td>
+                    Asignar y remover roles de los usuarios.
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

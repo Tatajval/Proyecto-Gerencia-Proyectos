@@ -1,0 +1,14 @@
+﻿/* Cambiar el color del texto a negro */
+body {
+    color: #000;
+}
+
+/* Cambiar el color del enlace a negro */
+a {
+    color: #000;
+}
+
+    /* Cambiar el color del enlace visitado a negro */
+    a:visited {
+        color: #000;
+    }

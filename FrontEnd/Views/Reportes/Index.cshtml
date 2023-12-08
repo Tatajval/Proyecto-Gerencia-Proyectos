@@ -1,0 +1,110 @@
+﻿@{
+    ViewData["Title"] = "Reportes";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <!-- Agrega enlaces a tus archivos CSS aquí si los tienes -->
+    <link rel="stylesheet" href="tu_estilo.css">
+    <style>
+        /* Estilos para el contenedor */
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para la tabla */
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+            border-collapse: collapse;
+        }
+
+            .table th,
+            .table td {
+                padding: 0.75rem;
+                vertical-align: top;
+                border-top: 1px solid #dee2e6;
+            }
+
+        /* Estilos para los botones */
+        .btn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        <h2>Consulta de reportes</h2>
+        <hr />
+        <p class="text-body">Utilice estas opciones para consultar los diferentes reportes disponibles.</p>
+
+        <div class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-left box-shadow mb-3">
+            <table class="table">
+                <tr>
+                    <th class="col-sm-3">Reporte</th>
+                    <th class="col-sm-10">Descripción</th>
+                </tr>
+                @if (User.IsInRole("admin"))
+                {
+                    <tr>
+                        <td>
+                            <a class="btn-link" asp-controller="UsuariosPorEstado" asp-action="Index">Usuarios por estado</a>
+                        </td>
+                        <td>
+                            Lista los usuarios agrupados de acuerdo a su estado (activo/inactivo).
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a class="btn-link" asp-controller="UsuariosPorRol" asp-action="Index">Usuarios por rol</a>
+                        </td>
+                        <td>
+                            Lista los usuarios agrupados de acuerdo a su rol asignado.
+                        </td>
+                    </tr>
+                }
+                @if (User.IsInRole("asistente"))
+                {
+                    <tr>
+                        <td>
+                            <a class="btn-link" asp-controller="UnidadesPorEstado" asp-action="Index">Unidades por estado</a>
+                        </td>
+                        <td>
+                            Lista todas las unidades y las agrupa de acuerdo a su estado de funcionamiento.
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <a class="btn-link" asp-controller="Recaudacion" asp-action="Index">Recaudación por ruta por fecha</a>
+                        </td>
+                        <td>
+                            Lista los montos recaudados agrupados por ruta por fecha.
+                        </td>
+                    </tr>
+                }
+                @if (User.IsInRole("admin"))
+                {
+                    <tr>
+                        <td>
+                            <a class="btn-link" asp-controller="Actividad" asp-action="Index">Actividades</a>
+                        </td>
+                        <td>
+                            Bitácora de actividades realizadas por los usuarios en el sistema.
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</body>
+</html>

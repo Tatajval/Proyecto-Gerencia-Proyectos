@@ -1,0 +1,85 @@
+﻿@model IEnumerable<BackEnd.Entidades.VwUnidadesPorEstado>
+
+@{
+    ViewData["Title"] = "Reportes";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewData["Title"]</title>
+    <!-- Agrega enlaces a tus archivos CSS aquí si los tienes -->
+    <link rel="stylesheet" href="tu_estilo.css">
+    <style>
+        /* Estilos para el contenedor */
+        .container {
+            max-width: 1500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Estilos para la tabla */
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        /* Estilos para el título de la página */
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        /* Estilos para los botones */
+        .btn {
+            margin-right: 5px;
+        }
+
+        /* Estilos para el enlace de vuelta */
+        .back-link {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>@ViewData["Title"]</h1>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Estado</th>
+                    <th>Unidades</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(modelItem => item.Estado)</td>
+                        <td>@Html.DisplayFor(modelItem => item.Unidades)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        <p class="back-link"><a asp-action="Index" asp-controller="Reportes">Volver</a></p>
+    </div>
+
+    <!-- Agrega aquí tus scripts si los necesitas -->
+</body>
+</html>
